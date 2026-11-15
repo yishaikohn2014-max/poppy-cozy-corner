@@ -3,90 +3,67 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#fcebdc">
-    <meta name="description" content="Chat and imagine little adventures with Poppy the kitten.">
-    <title>Playtime with Poppy</title>
+    <meta name="theme-color" content="#eaf7f1">
+    <meta name="description" content="Meet Poppy, a friendly color-changing blob who loves little math games.">
+    <title>Poppy's Little Math Garden</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
   </head>
   <body>
     <main class="app">
-      <div class="sky" aria-hidden="true">
-        <div class="sun"><span>☀</span></div>
-        <div class="cloud cloud-left"></div>
-        <div class="cloud cloud-right"></div>
-        <span class="star star-one">✦</span>
-        <span class="star star-two">✧</span>
-        <span class="star star-three">✿</span>
-        <span class="star star-four">♥</span>
-      </div>
-
       <header class="topbar">
-        <a class="brand" href="#" aria-label="Playtime with Poppy">
-          <span class="brand-flower" aria-hidden="true">✿</span>
-          <span>playtime <span class="brand-with">with</span> poppy</span>
-        </a>
-        <div class="together-pill"><span aria-hidden="true">💛</span> Just us, having fun!</div>
+        <div class="brand"><span class="brand-dot" aria-hidden="true"></span> Poppy's little math garden</div>
+        <p class="top-note">A little play. A little learning.</p>
       </header>
 
-      <section class="play-scene" aria-label="Play and talk with Poppy">
-        <div class="hill hill-back" aria-hidden="true"></div>
-        <div class="hill hill-front" aria-hidden="true"></div>
-        <div class="flower flower-one" aria-hidden="true">🌼</div>
-        <div class="flower flower-two" aria-hidden="true">🌷</div>
-        <div class="flower flower-three" aria-hidden="true">🌸</div>
-        <div class="flower flower-four" aria-hidden="true">🌼</div>
+      <section class="scene" aria-label="Math time with Poppy">
+        <div class="sun" aria-hidden="true"></div>
+        <div class="cloud cloud-one" aria-hidden="true"></div>
+        <div class="cloud cloud-two" aria-hidden="true"></div>
+        <div class="field field-back" aria-hidden="true"></div>
+        <div class="field field-front" aria-hidden="true"></div>
+        <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
+        <span class="sparkle sparkle-two" aria-hidden="true">✧</span>
+        <span class="flower flower-one" aria-hidden="true">✿</span>
+        <span class="flower flower-two" aria-hidden="true">✿</span>
+        <span class="flower flower-three" aria-hidden="true">✿</span>
 
-        <div class="pet-stage">
-          <div class="hello-label"><span class="live-dot" aria-hidden="true"></span> YOUR FRIEND IS HERE</div>
-          <button class="pet-button" id="pet-button" type="button" aria-label="Tap Poppy to say hello">
-            <span class="pet" id="pet" aria-hidden="true">🐱</span>
-            <span class="pet-heart" aria-hidden="true">💛</span>
-          </button>
+        <div class="friend">
+          <div class="hello"><span class="hello-dot" aria-hidden="true"></span> HI, I'M POPPY</div>
+          <div class="blob-wrap">
+            <div class="blob" id="blob" role="img" aria-label="Poppy, a happy green blob">
+              <span class="blob-eye eye-left" aria-hidden="true"></span>
+              <span class="blob-eye eye-right" aria-hidden="true"></span>
+              <span class="blob-cheek cheek-left" aria-hidden="true"></span>
+              <span class="blob-cheek cheek-right" aria-hidden="true"></span>
+              <span class="blob-smile" aria-hidden="true"></span>
+            </div>
+          </div>
           <h1>Poppy</h1>
-          <p class="pet-caption" id="pet-caption">Your fluffy friend</p>
+          <p class="friend-mood" id="friend-mood">Your kind math buddy</p>
         </div>
+
+        <section class="lesson" aria-label="Poppy's math question">
+          <p class="lesson-kicker" id="lesson-kicker">LET'S COUNT TOGETHER</p>
+          <p class="question" id="question" aria-live="polite" aria-atomic="true">1 + 1 = ?</p>
+          <p class="prompt" id="prompt">Can you tell Poppy the answer?</p>
+          <p class="speech-status" id="speech-status" role="status" aria-live="polite">Tap the microphone and say your answer.</p>
+        </section>
       </section>
 
-      <section class="chat-dock" aria-label="Chat with Poppy">
-        <div class="chat-card" id="chat-log" role="log" aria-live="polite" aria-relevant="additions text" aria-atomic="true">
-          <div class="chat-line kid-line" id="kid-line" hidden>
-            <div class="bubble kid-bubble"><span class="speaker">YOU</span><p id="kid-message"></p></div>
-            <span class="kid-avatar" aria-hidden="true">⭐</span>
-          </div>
-          <div class="chat-line">
-            <span class="chat-avatar" aria-hidden="true">🐱</span>
-            <div class="bubble poppy-bubble"><span class="speaker">POPPY SAYS</span><p id="poppy-message">Hi, bestie! I'm Poppy! Wanna play and make up a story together?</p></div>
-            <button class="replay-button" id="replay-button" type="button" aria-label="Hear Poppy say that again">🔊</button>
-          </div>
-        </div>
-
-        <button class="mic-button" id="mic-button" type="button" aria-pressed="false">
-          <span class="mic-icon" id="mic-icon" aria-hidden="true">🎤</span>
-          <span class="mic-copy"><strong id="mic-title">Tap to talk</strong><small id="mic-status" role="status" aria-live="polite">Say a little something to Poppy!</small></span>
-          <span class="mic-arrow" aria-hidden="true">›</span>
-        </button>
-
-        <div class="ideas-row">
-          <span class="ideas-label">OR TAP AN IDEA</span>
-          <div class="ideas">
-            <button class="idea idea-story" type="button" data-prompt="Tell me a story!"><span aria-hidden="true">📖</span> Tell a story</button>
-            <button class="idea idea-play" type="button" data-prompt="Let's dance together!"><span aria-hidden="true">🎈</span> Let's dance</button>
-            <button class="idea idea-chat" type="button" data-prompt="What do you like?"><span aria-hidden="true">💭</span> What do you like?</button>
-            <button class="idea idea-love" type="button" data-prompt="I want to send you a heart!"><span aria-hidden="true">💛</span> Send a heart</button>
-          </div>
-        </div>
-        <p class="kindness-note"><span aria-hidden="true">✨</span> Poppy is a pretend friend. Your messages aren't saved.</p>
-      </section>
+      <button class="mic-button" id="mic-button" type="button" aria-label="Tap to talk to Poppy" aria-pressed="false">
+        <span class="mic-icon" id="mic-icon" aria-hidden="true">🎤</span>
+        <span class="mic-label" id="mic-label">TALK</span>
+      </button>
 
       <dialog class="voice-disclosure" id="voice-disclosure" aria-labelledby="disclosure-title">
         <span class="disclosure-icon" aria-hidden="true">🧑‍🧒</span>
         <p class="disclosure-kicker">GROWN-UP, PLEASE READ</p>
         <h2 id="disclosure-title">A note about talking to Poppy</h2>
-        <p class="disclosure-copy">Your browser handles voice listening and may send audio to its speech provider. Spoken replies use a voice available in your browser, which may use its own provider too. This app does not save or send audio or messages to its own server. Please help your child avoid saying names, where they live, or other private details.</p>
-        <p class="disclosure-copy">When you tap “Start listening,” your browser may ask for microphone permission. Poppy listens for one short turn, then stops.</p>
+        <p class="disclosure-copy">Your browser handles voice listening and may send audio to its speech provider. Poppy's spoken replies use a voice available in your browser, which may use its own provider too. This app does not save or send audio or messages to its own server. Please help your child avoid saying names, where they live, or other private details.</p>
+        <p class="disclosure-copy">When you tap “I understand — start,” Poppy will say the first question. The microphone stays off until you tap the corner microphone to answer; your browser may then ask for permission. Poppy listens for one short turn, then stops.</p>
         <div class="disclosure-actions">
-          <button class="disclosure-cancel" id="disclosure-cancel" type="button">Not now — tap an idea</button>
+          <button class="disclosure-cancel" id="disclosure-cancel" type="button">Not now</button>
           <button class="disclosure-start" id="disclosure-start" type="button">I understand — start</button>
         </div>
       </dialog>
